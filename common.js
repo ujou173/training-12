@@ -11,7 +11,7 @@ const asideTag = document.createElement('aside')
 document.children[0].children[1].appendChild(asideTag);
 document.children[0].children[1].children[2].id = "move-btn";
 document.children[0].children[1].children[2].innerHTML = "<h1>move!</h1>";
-console.dir(document.children[0].children[1].children[2]);
+// console.dir(document.children[0].children[1].children[2]);
 // document.children[0].children[1].children[1].id = "move-btn";
 // document.getElementsByTagName('aside').id = "move-btn";
 // moveBtn.innerHTML = "<h1>move!</h1>";
@@ -24,19 +24,7 @@ for(let i = 0; i < 2; i++) {
 // console.dir(root.children[0]);
 root.children[0].children[0].id = "left-sect"
 root.children[0].children[1].id = "right-sect"
-
 root.children[0].children[0].appendChild(ulTag);
-for(let i = 1; i <= 5; i++) {
-  const liTag = document.createElement('li');
-  liTag.textContent = "item-" + i;
-  // li tag style
-  liTag.style.width = "100%";
-  liTag.style.height = "50px";
-  liTag.style.backgroundColor = "#fff";
-  liTag.style.border = "1px solid black";
-
-  root.children[0].children[0].children[0].appendChild(liTag);
-}
 
 // 두번째 ul 태그를 만들때 새로운 변수를 꼭 선언해야 할까?
 // 한번 선언해둔걸 다시 가져와서 쓸 수는 없을까?
@@ -59,17 +47,33 @@ for(let i = 0; i < ulStyle.length; i++) {
 // style을 단순하게 간략화 할 수 없을까? / 객체로 만들어서 활용 할 수 없을까?
 // 버튼 style
 const moveBtn = document.getElementById('move-btn');
-moveBtn.style.width = "200px";
-moveBtn.style.height = "200px";
-moveBtn.style.backgroundColor = "#fff";
-moveBtn.style.borderRadius = "50%";
-moveBtn.style.position = "fixed";
-moveBtn.style.bottom = "10px";
-moveBtn.style.left = "50vw";
-moveBtn.style.transform = "translate(-50%, 0)";
-moveBtn.style.display = "flex";
-moveBtn.style.justifyContent = "center";
-moveBtn.style.alignItems = "center";
+
+const btnObj = {
+  width : "200px",
+  height : "200px",
+  backgroundColor : "#fff",
+  borderRadius : "50%",
+  position : "fixed",
+  bottom : "10px",
+  left : "50vw",
+  transform : "translate(-50%, 0)",
+  display : "flex",
+  justifyContent : "center",
+  alignItems : "center",
+}
+console.dir(btnObj);
+
+moveBtn.style.width = btnObj.width;
+moveBtn.style.height = btnObj.height;
+moveBtn.style.backgroundColor = btnObj.backgroundColor;
+moveBtn.style.borderRadius = btnObj.borderRadius;
+moveBtn.style.position = btnObj.position;
+moveBtn.style.bottom = btnObj.bottom;
+moveBtn.style.left = btnObj.left;
+moveBtn.style.transform = btnObj.transform;
+moveBtn.style.display = btnObj.display;
+moveBtn.style.justifyContent = btnObj.justifyContent;
+moveBtn.style.alignItems = btnObj.alignItems;
 
 // root style
 root.style.width = "100vw";
@@ -116,3 +120,41 @@ for(let i = 0; i < section.length; i++) {
 // section[1].style.width = "200px";
 // section[1].style.height = "450px";
 // section[1].style.border = "1px solid blue";
+
+// 이벤트 핸들링용 토글 변수
+let switchToggle = true;
+
+// li 요소 만드는 부분 함수 화
+function move() {
+  for(let i = 1; i <= 5; i++) {
+    const liTag = document.createElement('li');
+    liTag.textContent = "item-" + i;
+    // li tag style
+    liTag.style.width = "100%";
+    liTag.style.height = "50px";
+    liTag.style.backgroundColor = "#fff";
+    liTag.style.border = "1px solid black";
+  
+    if(switchToggle === true) {
+      root.children[0].children[0].children[0].appendChild(liTag);
+    } else {
+      root.children[0].children[1].children[0].appendChild(liTag);
+    }
+  }
+};
+// 최초 페이지 로딩 시 li 요소 만들어 줌
+move();
+console.dir(root.children[0].children[0].children[0]);
+
+// 버튼을 클릭할 때 마다 ul을 초기화 시켜주고 양쪽에 번갈아가며 li태그를 만듬
+moveBtn.addEventListener('click', function() {
+  root.children[0].children[0].children[0].innerHTML = "";
+  root.children[0].children[1].children[0].innerHTML = "";
+  if(switchToggle === true) {
+    switchToggle = false;
+    move();
+  } else {
+    switchToggle = true;
+    move();
+  }
+})
