@@ -63,34 +63,83 @@ const btnObj = {
 }
 console.dir(btnObj);
 
-moveBtn.style.width = btnObj.width;
-moveBtn.style.height = btnObj.height;
-moveBtn.style.backgroundColor = btnObj.backgroundColor;
-moveBtn.style.borderRadius = btnObj.borderRadius;
-moveBtn.style.position = btnObj.position;
-moveBtn.style.bottom = btnObj.bottom;
-moveBtn.style.left = btnObj.left;
-moveBtn.style.transform = btnObj.transform;
-moveBtn.style.display = btnObj.display;
-moveBtn.style.justifyContent = btnObj.justifyContent;
-moveBtn.style.alignItems = btnObj.alignItems;
+// 작성법이 익숙치 않으니 여러번 해볼 것
+let getKeyBtnObj = [];
+for(let key in btnObj) {
+  console.log(key);
+  // 위쪽에 생성한 빈 배열에 btnObj의 key 값을 하나씩 밀어넣어라(?)
+  getKeyBtnObj.push(key);
+}
+console.log(getKeyBtnObj);
+console.log(getKeyBtnObj[0]);
+for(let i = 0; i < getKeyBtnObj.length; i++) {
+  // 왜 moveBtn.style.getKeyBtnObj[i]로 하면 오류가 나는가?
+  // getKeyBtnObj[i]를 콘솔로 찍어보면 값이 잘 나오고, 타입도 string으로 나오는데
+  moveBtn.style[getKeyBtnObj[i]] = btnObj[getKeyBtnObj[i]];
+}
+// moveBtn.style.width = btnObj.width;
+// moveBtn.style.height = btnObj.height;
+// moveBtn.style.backgroundColor = btnObj.backgroundColor;
+// moveBtn.style.borderRadius = btnObj.borderRadius;
+// moveBtn.style.position = btnObj.position;
+// moveBtn.style.bottom = btnObj.bottom;
+// moveBtn.style.left = btnObj.left;
+// moveBtn.style.transform = btnObj.transform;
+// moveBtn.style.display = btnObj.display;
+// moveBtn.style.justifyContent = btnObj.justifyContent;
+// moveBtn.style.alignItems = btnObj.alignItems;
+
 
 // root style
-root.style.width = "100vw";
-root.style.height = "100vh";
-root.style.backgroundColor = "cadetblue";
-root.style.display = "flex";
-root.style.justifyContent = "center";
-root.style.alignItems = "center";
+const rootObj = {
+  width : "100vw",
+  height : "100vh",
+  backgroundColor : "cadetblue",
+  display : "flex",
+  justifyContent : "center",
+  alignItems : "center",
+}
+let getKeyRootObj = [];
+for(let key in rootObj) {
+  getKeyRootObj.push(key);
+}
+console.log(getKeyRootObj);
+for(let i=0; i < getKeyRootObj.length; i++) {
+  root.style[getKeyRootObj[i]] = rootObj[getKeyRootObj[i]];
+}
+
+// root.style.width = "100vw";
+// root.style.height = "100vh";
+// root.style.backgroundColor = "cadetblue";
+// root.style.display = "flex";
+// root.style.justifyContent = "center";
+// root.style.alignItems = "center";
 // console.dir(root)
 
 // main style
-root.children[0].style.width = "500px";
-root.children[0].style.height = "500px";
-root.children[0].style.border = "1px dotted black";
-root.children[0].style.display = "flex";
-root.children[0].style.justifyContent = "center";
-root.children[0].style.alignItems = "center";
+const mainObj = {
+  width : "500px",
+  height : "500px",
+  border : "1px dotted black",
+  display : "flex",
+  justifyContent : "center",
+  alignItems : "center",
+}
+
+let getKeyMainObj = [];
+for(let key in mainObj) {
+  getKeyMainObj.push(key);
+}
+for(let i = 0; i < getKeyMainObj.length; i++) {
+  root.children[0].style[getKeyMainObj[i]] = mainObj[getKeyMainObj[i]];
+}
+
+// root.children[0].style.width = "500px";
+// root.children[0].style.height = "500px";
+// root.children[0].style.border = "1px dotted black";
+// root.children[0].style.display = "flex";
+// root.children[0].style.justifyContent = "center";
+// root.children[0].style.alignItems = "center";
 
 // section style
 const section = document.getElementsByTagName('section');
@@ -158,3 +207,32 @@ moveBtn.addEventListener('click', function() {
     move();
   }
 })
+
+// 강사 제공 연구거리
+const styleExample = {
+  color: "red",
+  backgroundColor: "yellow",
+  border : "1px solid black",
+  padding: "10px",
+}
+console.log(styleExample);
+
+let getKeyString = [];
+for (let key in styleExample) {
+  getKeyString.push(key);
+}
+console.log(getKeyString);
+for(let i = 0; i < getKeyString.length; i++) {
+  console.log(styleExample[getKeyString[i]]);
+}
+
+let exampleKey = ["color", "background", "border"];
+let exampleValue = ["red", "yello", "1px solid black"];
+
+let obj = {};
+for(let i = 0; i < exampleKey.length; i++) {
+  obj[exampleKey[i]] = exampleValue[i];
+}
+console.log(obj);
+
+// 의문점
