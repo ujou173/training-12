@@ -143,8 +143,41 @@ for(let i = 0; i < getKeyMainObj.length; i++) {
 
 // section style
 const section = document.getElementsByTagName('section');
-// console.dir(section);
+// const sectObj = {
+//   // 공통 부분
+//   display : "flex",
+//   jsutifyContent : "center",
+//   alignItems : "center",
+//   // left-sect 부분
+//   width : "200px",
+//   height : "450px",
+//   border : "1px solid black",
+//   // right-sect 부분
+//   width : "200px",
+//   height : "450px",
+//   border : "1px solid blue",
+// }
+//객체 안에서 key 값 중복이 안되는데 이걸 어떻게 각각의 section에 할당해줘야 할까?
+// left-sect 따로, right-sect 따로 객체를 만들어야만 하는가?
+// 공통 부분이 있을때 한번에 묶어서 처리할 수 있는 방법이 뭘까?
+
+// let getKeySectObj = [];
+// for(let key in sectObj) {
+//   getKeySectObj.push(key);
+// };
+// console.log(getKeySectObj);
+// for(let j = 0; j < section.length; j++) {
+//   for(let i = 0; i < getKeySectObj.length; i++) {
+//     if(j === 0 && i < 6) {
+//       section[j].style[getKeySectObj[i]] = sectObj[getKeySectObj[i]];
+//     } else if(j === 1 && i > 5) {
+//       section[j].style[getKeySectObj[i]] = sectObj[getKeySectObj[i]]
+//     }
+//   }
+// }
+
 // section 공통 style
+// 이걸 for in 문과 함께 어떻게 써야 깔끔하게 될 까
 for(let i = 0; i < section.length; i++) {
   section[i].style.display = "flex";
   section[i].style.justifyContent = "center";
