@@ -40,7 +40,7 @@ root.children[0].children[1].appendChild(ulSecondTag);
 console.dir(document.children[0].children[1])
 console.dir(root);
 
-// style
+// 공통 style
 root.parentElement.style.overflowX = "hidden";
 const ulStyle = document.getElementsByTagName('ul');
 // console.log(ulStyle);
@@ -50,3 +50,49 @@ for(let i = 0; i < ulStyle.length; i++) {
   ulStyle[i].style.listStyleType = "none";
 }
 
+// 버튼 style
+const moveBtn = document.getElementById('move-btn');
+// 단순하게 간략화 할 수 없을까? / 객체로 만들어서 활용 할 수 없을까?
+moveBtn.style.width = "200px";
+moveBtn.style.height = "200px";
+moveBtn.style.backgroundColor = "#fff";
+moveBtn.style.borderRadius = "50%";
+moveBtn.style.position = "fixed";
+moveBtn.style.bottom = "10px";
+moveBtn.style.left = "50vw";
+moveBtn.style.transform = "translate(-50%, 0)";
+moveBtn.style.display = "flex";
+moveBtn.style.justifyContent = "center";
+moveBtn.style.alignItems = "center";
+
+// root style
+root.style.width = "100vw";
+root.style.height = "100vh";
+root.style.backgroundColor = "cadetblue";
+root.style.display = "flex";
+root.style.justifyContent = "center";
+root.style.alignItems = "center";
+// console.dir(root)
+
+// main style
+root.children[0].style.width = "500px";
+root.children[0].style.height = "500px";
+root.children[0].style.border = "1px dotted black";
+root.children[0].style.display = "flex";
+root.children[0].style.justifyContent = "center";
+root.children[0].style.alignItems = "center";
+
+// section style
+const section = document.getElementsByTagName('section');
+// console.dir(section);
+// section 공통 style
+for(let i = 0; i < section.length; i++) {
+  section[i].style.display = "flex";
+  section[i].style.justifyContent = "center";
+  section[i].style.alignItems = "center";
+}
+
+// left-sect style
+section[0].style.width = "200px";
+section[0].style.height = "450px";
+section[0].style.border = "1px solid black";
