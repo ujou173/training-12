@@ -56,9 +56,9 @@ for(let i = 0; i < ulStyle.length; i++) {
   ulStyle[i].style.listStyleType = "none";
 }
 
+// style을 단순하게 간략화 할 수 없을까? / 객체로 만들어서 활용 할 수 없을까?
 // 버튼 style
 const moveBtn = document.getElementById('move-btn');
-// 단순하게 간략화 할 수 없을까? / 객체로 만들어서 활용 할 수 없을까?
 moveBtn.style.width = "200px";
 moveBtn.style.height = "200px";
 moveBtn.style.backgroundColor = "#fff";
@@ -96,14 +96,23 @@ for(let i = 0; i < section.length; i++) {
   section[i].style.display = "flex";
   section[i].style.justifyContent = "center";
   section[i].style.alignItems = "center";
+  if(i === 0) {
+    section[i].style.width = "200px";
+    section[i].style.height = "450px";
+    section[i].style.border = "1px solid black";
+  } else {
+    section[i].style.width = "200px";
+    section[i].style.height = "450px";
+    section[i].style.border = "1px solid blue";
+  }
 }
 
 // left-sect style
-section[0].style.width = "200px";
-section[0].style.height = "450px";
-section[0].style.border = "1px solid black";
+// section[0].style.width = "200px";
+// section[0].style.height = "450px";
+// section[0].style.border = "1px solid black";
 
 // right-sect style
-section[1].style.width = "200px";
-section[1].style.height = "450px";
-section[1].style.border = "1px solid blue";
+// section[1].style.width = "200px";
+// section[1].style.height = "450px";
+// section[1].style.border = "1px solid blue";
