@@ -29,6 +29,12 @@ root.children[0].children[0].appendChild(ulTag);
 for(let i = 1; i <= 5; i++) {
   const liTag = document.createElement('li');
   liTag.textContent = "item-" + i;
+  // li tag style
+  liTag.style.width = "100%";
+  liTag.style.height = "50px";
+  liTag.style.backgroundColor = "#fff";
+  liTag.style.border = "1px solid black";
+
   root.children[0].children[0].children[0].appendChild(liTag);
 }
 
