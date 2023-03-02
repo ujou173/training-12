@@ -96,3 +96,8 @@ for(let i = 0; i < section.length; i++) {
 section[0].style.width = "200px";
 section[0].style.height = "450px";
 section[0].style.border = "1px solid black";
+
+// right-sect style
+section[1].style.width = "200px";
+section[1].style.height = "450px";
+section[1].style.border = "1px solid blue";
